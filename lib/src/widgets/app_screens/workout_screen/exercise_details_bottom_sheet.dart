@@ -1,11 +1,9 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'video_player_controls/video_player_controls.dart';
 
 class ExerciseDetailsBottomSheet extends StatefulWidget {
-  final String videoUrl; // добавляем URL для видео
+  final String videoUrl; // URL для видео
   final String imagePath;
   final String exerciseText;
   final String subtitleText;
@@ -35,19 +33,16 @@ class _ExerciseDetailsBottomSheetState
   @override
   void initState() {
     super.initState();
-    // Инициализируем контроллер видео с URL
+    // ignore: deprecated_member_use
     _controller = VideoPlayerController.network(widget.videoUrl)
       ..initialize().then((_) {
-        // Гарантируем, что видео начнется с начала
         _controller.seekTo(Duration.zero);
-        // Обновляем состояние, чтобы виджет перестроился и показал видео
         setState(() {});
       });
   }
 
   @override
   void dispose() {
-    // Освобождаем ресурсы контроллера видео
     _controller.dispose();
     super.dispose();
   }
@@ -67,132 +62,158 @@ class _ExerciseDetailsBottomSheetState
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedIndex = 0;
-                        _controller
-                            .pause(); // Останавливаем видео при переключении на изображение
-                      });
-                    },
-                    child: Text(
-                      'Анимация',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: selectedIndex == 0 ? Colors.pink : Colors.black,
+            Semantics(
+              label: 'Выбор между изображением и видео',
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = 0;
+                          _controller.pause();
+                        });
+                      },
+                      child: Semantics(
+                        label: 'Изображение',
+                        child: Text(
+                          'Анимация',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color:
+                                selectedIndex == 0 ? Colors.pink : Colors.black,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedIndex = 1;
-                      });
-                    },
-                    child: Text(
-                      'Видео',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: selectedIndex == 1 ? Colors.pink : Colors.black,
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = 1;
+                        });
+                      },
+                      child: Semantics(
+                        label: 'Видео',
+                        child: Text(
+                          'Видео',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color:
+                                selectedIndex == 1 ? Colors.pink : Colors.black,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-            if (selectedIndex == 0)
-              Image(
-                image: AssetImage(widget.imagePath),
-              ),
-            if (selectedIndex == 1)
-              _controller.value.isInitialized
-                  ? AspectRatio(
-                      aspectRatio: _controller.value.aspectRatio,
-                      child: Stack(
-                        alignment: Alignment.bottomCenter,
-                        children: <Widget>[
-                          VideoPlayer(_controller),
-                          VideoProgressIndicator(
-                            _controller,
-                            allowScrubbing: true,
-                          ),
-                          VideoPlayerControls(
-                            controller: _controller,
-                          ),
-                        ],
-                      ),
+            Semantics(
+              label: selectedIndex == 0
+                  ? 'Изображение упражнения: ${widget.exerciseText}'
+                  : 'Видео упражнения: ${widget.exerciseText}',
+              child: selectedIndex == 0
+                  ? Image(
+                      image: AssetImage(widget.imagePath),
                     )
-                  : const CircularProgressIndicator(
-                      color: Color.fromRGBO(255, 51, 119, 1),
-                    ), // Показываем индикатор загрузки, пока видео не загрузится
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10, top: 16),
+                  : _controller.value.isInitialized
+                      ? AspectRatio(
+                          aspectRatio: _controller.value.aspectRatio,
+                          child: Stack(
+                            alignment: Alignment.bottomCenter,
+                            children: <Widget>[
+                              VideoPlayer(_controller),
+                              VideoProgressIndicator(
+                                _controller,
+                                allowScrubbing: true,
+                              ),
+                              VideoPlayerControls(
+                                controller: _controller,
+                              ),
+                            ],
+                          ),
+                        )
+                      : const CircularProgressIndicator(
+                          color: Color.fromRGBO(255, 51, 119, 1),
+                        ),
+            ),
+            Semantics(
+              label: 'Название упражнения: ${widget.exerciseText}',
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 10, top: 16),
+                child: Row(
+                  children: [
+                    Text(
+                      widget.exerciseText,
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      softWrap: true,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Semantics(
+              label:
+                  'Сеты: ${widget.setText}, Продолжительность: ${widget.durationText}',
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    widget.exerciseText,
+                    widget.setText,
                     style: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
                     ),
-                    softWrap: true,
+                  ),
+                  Text(
+                    widget.durationText,
+                    style: const TextStyle(
+                      fontSize: 18,
+                    ),
                   ),
                 ],
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  widget.setText,
-                  style: const TextStyle(
-                    fontSize: 18,
-                  ),
-                ),
-                Text(
-                  widget.durationText,
-                  style: const TextStyle(
-                    fontSize: 18,
-                  ),
-                ),
-              ],
             ),
             const Divider(
               color: Color.fromRGBO(255, 51, 119, 1),
               thickness: 1,
             ),
             const SizedBox(height: 8),
-            Text(
-              widget.subtitleText,
-              style: const TextStyle(
-                fontSize: 18,
+            Semantics(
+              label: 'Описание упражнения: ${widget.subtitleText}',
+              child: Text(
+                widget.subtitleText,
+                style: const TextStyle(
+                  fontSize: 18,
+                ),
               ),
             ),
             const SizedBox(height: 26),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop(); // Закрытие BottomSheet
-              },
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size(double.infinity, 50),
-                backgroundColor: const Color.fromRGBO(
-                    255, 51, 119, 1), // Цвет кнопки при отсутствии onPressed
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
+            Semantics(
+              label: 'Закрыть',
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size(double.infinity, 50),
+                  backgroundColor: const Color.fromRGBO(255, 51, 119, 1),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
                 ),
-              ),
-              child: const Text(
-                'Закрыть',
-                style: TextStyle(
-                  fontSize: 24.0,
-                  color: Colors.white,
+                child: const Text(
+                  'Закрыть',
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),

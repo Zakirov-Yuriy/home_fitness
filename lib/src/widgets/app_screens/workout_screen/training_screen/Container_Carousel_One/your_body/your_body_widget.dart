@@ -6,27 +6,32 @@ class YourBodyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Ваш существующий код для YourBodyWidget
     return Padding(
       padding: const EdgeInsets.only(top: 15),
       child: Center(
         child: Column(
           children: [
-            Text(
-              'Всё тело'.toUpperCase(),
-              style: const TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.w800,
+            Semantics(
+              label: 'Заголовок: Всё тело',
+              child: Text(
+                'Всё тело'.toUpperCase(),
+                style: const TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w800,
+                ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 15),
-              child: Text(
-                'КОРОТКИЕ УПРАЖНЕНИЯ ИНТЕНСИВНЫЙ И НАСЫЩЕННЫЙ',
-                style: TextStyle(
-                  fontSize: 18,
+            Padding(
+              padding: const EdgeInsets.only(top: 15),
+              child: Semantics(
+                label: 'Описание: Короткие упражнения интенсивный и насыщенный',
+                child: const Text(
+                  'КОРОТКИЕ УПРАЖНЕНИЯ ИНТЕНСИВНЫЙ И НАСЫЩЕННЫЙ',
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
               ),
             ),
             Padding(
@@ -35,23 +40,26 @@ class YourBodyWidget extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Column(
-                      children: [
-                        Text(
-                          '9',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w800,
-                            color: Color.fromRGBO(255, 51, 119, 1),
+                    Semantics(
+                      label: 'Количество упражнений: 9',
+                      child: const Column(
+                        children: [
+                          Text(
+                            '9',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w800,
+                              color: Color.fromRGBO(255, 51, 119, 1),
+                            ),
                           ),
-                        ),
-                        Text(
-                          'Упражнений',
-                          style: TextStyle(
-                            fontSize: 18,
+                          Text(
+                            'Упражнений',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                     Container(
                       height: 45,
@@ -61,44 +69,53 @@ class YourBodyWidget extends StatelessWidget {
                         horizontal: 20,
                       ),
                     ),
-                    const Column(
-                      children: [
-                        Text(
-                          '23',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w800,
-                            color: Color.fromRGBO(255, 51, 119, 1),
+                    Semantics(
+                      label: 'Продолжительность: 23 минуты',
+                      child: const Column(
+                        children: [
+                          Text(
+                            '23',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w800,
+                              color: Color.fromRGBO(255, 51, 119, 1),
+                            ),
                           ),
-                        ),
-                        Text(
-                          'Минут',
-                          style: TextStyle(
-                            fontSize: 18,
+                          Text(
+                            'Минут',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 16, bottom: 5),
-              child: Divider(
-                color: Colors.grey,
-                thickness: 3,
+            Padding(
+              padding: const EdgeInsets.only(top: 16, bottom: 5),
+              child: Semantics(
+                label: 'Разделитель',
+                child: const Divider(
+                  color: Colors.grey,
+                  thickness: 3,
+                ),
               ),
             ),
-            Container(
-              alignment: Alignment.centerLeft,
-              child: const Padding(
-                padding: EdgeInsets.only(left: 16, bottom: 5),
-                child: Text(
-                  'Список упражнений',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+            Semantics(
+              label: 'Заголовок: Список упражнений',
+              child: Container(
+                alignment: Alignment.centerLeft,
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 16, bottom: 5),
+                  child: Text(
+                    'Список упражнений',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),

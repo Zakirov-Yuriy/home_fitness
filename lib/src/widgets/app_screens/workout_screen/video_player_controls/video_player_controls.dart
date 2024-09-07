@@ -44,41 +44,47 @@ class VideoPlayerControlsState extends State<VideoPlayerControls> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        GestureDetector(
-          onTap: () {
-            setState(() {
-              _hideControls = !_hideControls;
-            });
-          },
-          child: AbsorbPointer(
-            absorbing: _hideControls,
-            child: AnimatedOpacity(
-              opacity: _hideControls ? 0.0 : 1.0,
-              duration: const Duration(milliseconds: 300),
-              child: Container(
-                color: Colors.transparent,
-                child: const Center(
-                  child: Icon(
-                    Icons.play_arrow,
-                    color: Color.fromRGBO(255, 51, 119, 1),
-                    size: 70.0,
+        Semantics(
+          label: 'Контроль воспроизведения видео',
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                _hideControls = !_hideControls;
+              });
+            },
+            child: AbsorbPointer(
+              absorbing: _hideControls,
+              child: AnimatedOpacity(
+                opacity: _hideControls ? 0.0 : 1.0,
+                duration: const Duration(milliseconds: 300),
+                child: Container(
+                  color: Colors.transparent,
+                  child: const Center(
+                    child: Icon(
+                      Icons.play_arrow,
+                      color: Color.fromRGBO(255, 51, 119, 1),
+                      size: 70.0,
+                    ),
                   ),
                 ),
               ),
             ),
           ),
         ),
-        GestureDetector(
-          onTap: () {
-            setState(() {
-              _hideControls = !_hideControls;
-            });
-            if (widget.controller.value.isPlaying) {
-              widget.controller.pause();
-            } else {
-              widget.controller.play();
-            }
-          },
+        Semantics(
+          label: 'Воспроизведение или приостановка видео',
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                _hideControls = !_hideControls;
+              });
+              if (widget.controller.value.isPlaying) {
+                widget.controller.pause();
+              } else {
+                widget.controller.play();
+              }
+            },
+          ),
         ),
       ],
     );

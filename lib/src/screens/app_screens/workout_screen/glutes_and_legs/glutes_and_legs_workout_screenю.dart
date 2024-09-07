@@ -34,25 +34,34 @@ class GlutesAndLegsWorkoutScreenState
           SliverAppBar(
             title: _isImageVisible
                 ? null
-                : const Text(
-                    'Ноги и бедра',
-                    style: TextStyle(fontWeight: FontWeight.w600),
+                : Semantics(
+                    label: 'Заголовок страницы: Ноги и бедра',
+                    child: const Text(
+                      'Ноги и бедра',
+                      style: TextStyle(fontWeight: FontWeight.w600),
+                    ),
                   ),
             expandedHeight: 200.0,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                'assets/images/training_image/workout_image/glutes_and_legs/glutes and legs.png',
-                fit: BoxFit.cover,
+              background: Semantics(
+                label: 'Изображение для тренировки ног и бедер',
+                child: Image.asset(
+                  'assets/images/training_image/workout_image/glutes_and_legs/glutes and legs.png',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
-          const SliverToBoxAdapter(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                GlutesAndLegsWidget(),
-              ],
+          SliverToBoxAdapter(
+            child: Semantics(
+              label: 'Упражнения для ног и бедер',
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  GlutesAndLegsWidget(),
+                ],
+              ),
             ),
           ),
         ],

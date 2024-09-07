@@ -6,27 +6,32 @@ class LegsAndThighsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Ваш существующий код для LegsAndThighsWidget
     return Padding(
       padding: const EdgeInsets.only(top: 15),
       child: Center(
         child: Column(
           children: [
-            Text(
-              'Ноги и бедра'.toUpperCase(),
-              style: const TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.w800,
+            Semantics(
+              label: 'Ноги и бедра. Лучше всего подходит для ног и бедер.',
+              child: Text(
+                'Ноги и бедра'.toUpperCase(),
+                style: const TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w800,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 15),
-              child: Text(
-                'Лучше всего подходит \nдля ног и бедер'.toUpperCase(),
-                style: const TextStyle(
-                  fontSize: 18,
+              child: Semantics(
+                label: 'Лучше всего подходит для ног и бедер.',
+                child: Text(
+                  'Лучше всего подходит \nдля ног и бедер'.toUpperCase(),
+                  style: const TextStyle(
+                    fontSize: 18,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
               ),
             ),
             Padding(
@@ -35,23 +40,26 @@ class LegsAndThighsWidget extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Column(
-                      children: [
-                        Text(
-                          '10',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w800,
-                            color: Color.fromRGBO(255, 51, 119, 1),
+                    Semantics(
+                      label: '10 упражнений',
+                      child: const Column(
+                        children: [
+                          Text(
+                            '10',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w800,
+                              color: Color.fromRGBO(255, 51, 119, 1),
+                            ),
                           ),
-                        ),
-                        Text(
-                          'Упражнений',
-                          style: TextStyle(
-                            fontSize: 18,
+                          Text(
+                            'Упражнений',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                     Container(
                       height: 45,
@@ -61,23 +69,26 @@ class LegsAndThighsWidget extends StatelessWidget {
                         horizontal: 20,
                       ),
                     ),
-                    const Column(
-                      children: [
-                        Text(
-                          '24',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w800,
-                            color: Color.fromRGBO(255, 51, 119, 1),
+                    Semantics(
+                      label: '24 минуты',
+                      child: const Column(
+                        children: [
+                          Text(
+                            '24',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w800,
+                              color: Color.fromRGBO(255, 51, 119, 1),
+                            ),
                           ),
-                        ),
-                        Text(
-                          'Минут',
-                          style: TextStyle(
-                            fontSize: 18,
+                          Text(
+                            'Минут',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -90,15 +101,18 @@ class LegsAndThighsWidget extends StatelessWidget {
                 thickness: 3,
               ),
             ),
-            Container(
-              alignment: Alignment.centerLeft,
-              child: const Padding(
-                padding: EdgeInsets.only(left: 16, bottom: 5),
-                child: Text(
-                  'Список упражнений',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+            Semantics(
+              label: 'Список упражнений',
+              child: Container(
+                alignment: Alignment.centerLeft,
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 16, bottom: 5),
+                  child: Text(
+                    'Список упражнений',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),

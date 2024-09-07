@@ -18,61 +18,85 @@ class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.edit_calendar_outlined),
-          color: const Color.fromRGBO(255, 51, 119, 1),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const CalendarScreen()),
-            );
-          },
-        ),
-        // Остальные параметры AppBar
-      ),
+      // appBar: AppBar(
+      //     // leading: IconButton(
+      //     //   icon: const Icon(Icons.edit_calendar_outlined),
+      //     //   color: const Color.fromRGBO(255, 51, 119, 1),
+      //     //   onPressed: () {
+      //     //     Navigator.push(
+      //     //       context,
+      //     //       MaterialPageRoute(builder: (context) => const CalendarScreen()),
+      //     //     );
+      //     //   },
+      //     // ),
+      //     // Остальные параметры AppBar
+      //     ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              alignment: Alignment.bottomLeft,
-              child: const Padding(
-                padding: EdgeInsets.only(left: 10, bottom: 10),
-                child: Text(
-                  'Фитнес для женщин',
-                  style: TextStyle(
-                      fontSize: 23,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 0),
+            Semantics(
+              label: 'Заголовок: Фитнес для женщин',
+              child: Container(
+                alignment: Alignment.bottomLeft,
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 10, bottom: 10, top: 10),
+                  child: Text(
+                    'Фитнес для женщин',
+                    style: TextStyle(
+                        fontSize: 23,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 0),
+                  ),
                 ),
               ),
             ),
 
-            Container(
-              alignment: Alignment.bottomLeft,
-              child: const Padding(
-                padding: EdgeInsets.only(left: 10, bottom: 5),
-                child: Text(
-                  'Программа',
-                  style: TextStyle(
-                      fontSize: 16, letterSpacing: 0, color: Colors.blueGrey),
+            Semantics(
+              label: 'Подзаголовок: Программа',
+              child: Container(
+                alignment: Alignment.bottomLeft,
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 10, bottom: 5),
+                  child: Text(
+                    'Программа',
+                    style: TextStyle(
+                        fontSize: 16, letterSpacing: 0, color: Colors.blueGrey),
+                  ),
                 ),
               ),
             ),
 
             // Контент страницы
             // Карусель с двумя контейнерами
-            ContainerCarouselOne(),
+            Semantics(
+              label: 'Карусель с упражнениями для тела',
+              child: ContainerCarouselOne(),
+            ),
             const SizedBox(height: 20),
-            ContainerCarouselTwo(),
+            Semantics(
+              label: 'Карусель с упражнениями для ног и бедер',
+              child: ContainerCarouselTwo(),
+            ),
             const SizedBox(height: 20),
-            ContainerCarouselThree(),
+            Semantics(
+              label: 'Карусель с упражнениями для сжигания жира на животе',
+              child: ContainerCarouselThree(),
+            ),
             const SizedBox(height: 20),
-            ContainerCarouselFour(),
+            Semantics(
+              label: 'Карусель с упражнениями для увеличения ягодиц',
+              child: ContainerCarouselFour(),
+            ),
             const SizedBox(height: 20),
-            ContainerCarouselFive(),
+            Semantics(
+              label: 'Карусель с упражнениями для подтяжки рук',
+              child: ContainerCarouselFive(),
+            ),
             const SizedBox(height: 20),
-            ContainerCarouselSix(),
+            Semantics(
+              label: 'Карусель с упражнениями для лица',
+              child: ContainerCarouselSix(),
+            ),
             const SizedBox(height: 20),
             // Дополнительный контент
           ],

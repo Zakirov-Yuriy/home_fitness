@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'tight_toned_arms_content_widget.dart';
 
 class TightTonedArmsWidget extends StatelessWidget {
@@ -7,27 +6,32 @@ class TightTonedArmsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Ваш существующий код для TightTonedArmsWidget
     return Padding(
       padding: const EdgeInsets.only(top: 15),
       child: Center(
         child: Column(
           children: [
-            Text(
-              'Подтянутые руки'.toUpperCase(),
-              style: const TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.w800,
+            Semantics(
+              label: 'Заголовок: Подтянутые руки',
+              child: Text(
+                'Подтянутые руки'.toUpperCase(),
+                style: const TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w800,
+                ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 15),
-              child: Text(
-                'Лучше всего подходит для \nрук и предплечий'.toUpperCase(),
-                style: const TextStyle(
-                  fontSize: 18,
+            Semantics(
+              label: 'Описание: Лучше всего подходит для рук и предплечий',
+              child: Padding(
+                padding: const EdgeInsets.only(top: 15),
+                child: Text(
+                  'Лучше всего подходит для \nрук и предплечий'.toUpperCase(),
+                  style: const TextStyle(
+                    fontSize: 18,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
               ),
             ),
             Padding(
@@ -36,49 +40,53 @@ class TightTonedArmsWidget extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Column(
-                      children: [
-                        Text(
-                          '9',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w800,
-                            color: Color.fromRGBO(255, 51, 119, 1),
+                    Semantics(
+                      label: 'Количество упражнений: 9',
+                      child: const Column(
+                        children: [
+                          Text(
+                            '9',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w800,
+                              color: Color.fromRGBO(255, 51, 119, 1),
+                            ),
                           ),
-                        ),
-                        Text(
-                          'Упражнений',
-                          style: TextStyle(
-                            fontSize: 18,
+                          Text(
+                            'Упражнений',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                     Container(
                       height: 45,
                       width: 1,
                       color: Colors.blueGrey,
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                      ),
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
                     ),
-                    const Column(
-                      children: [
-                        Text(
-                          '21',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w800,
-                            color: Color.fromRGBO(255, 51, 119, 1),
+                    Semantics(
+                      label: 'Общее время: 21 минута',
+                      child: const Column(
+                        children: [
+                          Text(
+                            '21',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w800,
+                              color: Color.fromRGBO(255, 51, 119, 1),
+                            ),
                           ),
-                        ),
-                        Text(
-                          'Минут',
-                          style: TextStyle(
-                            fontSize: 18,
+                          Text(
+                            'Минут',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -91,15 +99,18 @@ class TightTonedArmsWidget extends StatelessWidget {
                 thickness: 3,
               ),
             ),
-            Container(
-              alignment: Alignment.centerLeft,
-              child: const Padding(
-                padding: EdgeInsets.only(left: 16, bottom: 5),
-                child: Text(
-                  'Список упражнений',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+            Semantics(
+              label: 'Заголовок: Список упражнений',
+              child: Container(
+                alignment: Alignment.centerLeft,
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 16, bottom: 5),
+                  child: Text(
+                    'Список упражнений',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),

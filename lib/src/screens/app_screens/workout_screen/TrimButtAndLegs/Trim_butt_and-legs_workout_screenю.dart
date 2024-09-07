@@ -34,25 +34,34 @@ class TrimButtAndLegsWorkoutScreenState
           SliverAppBar(
             title: _isImageVisible
                 ? null
-                : const Text(
-                    'Ягодици и ноги',
-                    style: TextStyle(fontWeight: FontWeight.w600),
+                : Semantics(
+                    label: 'Заголовок страницы: Ягодицы и ноги',
+                    child: const Text(
+                      'Ягодицы и ноги',
+                      style: TextStyle(fontWeight: FontWeight.w600),
+                    ),
                   ),
             expandedHeight: 200.0,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                'assets/images/training_image/workout_image/trim butt and legs/trim butt and legs.jpg',
-                fit: BoxFit.cover,
+              background: Semantics(
+                label: 'Изображение для тренировки ягодиц и ног',
+                child: Image.asset(
+                  'assets/images/training_image/workout_image/trim butt and legs/trim butt and legs.jpg',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
-          const SliverToBoxAdapter(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                TrimButtAndLegsWidget(),
-              ],
+          SliverToBoxAdapter(
+            child: Semantics(
+              label: 'Упражнения для ягодиц и ног',
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  TrimButtAndLegsWidget(),
+                ],
+              ),
             ),
           ),
         ],

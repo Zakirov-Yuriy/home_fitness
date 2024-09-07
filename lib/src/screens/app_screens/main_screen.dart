@@ -30,24 +30,34 @@ class _MainScreenExampleState extends State<MainScreenExample> {
   Widget build(BuildContext context) {
     return Scaffold(
       //  Нижний AppBar
-
       body: <Widget>[
         /// Home page
-        const Card(
-          // shadowColor: Colors.transparent,
-          margin: EdgeInsets.all(8.0),
-          child: HomeScreen(),
+        Semantics(
+          label: 'Домашняя страница',
+          child: const Card(
+            margin: EdgeInsets.all(8.0),
+            child: HomeScreen(),
+          ),
         ),
 
         /// Notifications page
-
-        const Card(
-          margin: EdgeInsets.all(8.0),
-          // child: MyProfileScreen(),
-          // shadowColor: Colors.transparent,
+        Semantics(
+          label: 'Страница уведомлений',
+          child: const Card(
+            margin: EdgeInsets.all(8.0),
+            // child: MyProfileScreen(),
+            // shadowColor: Colors.transparent,
+          ),
         ),
 
         /// Messages page
+        Semantics(
+          label: 'Страница сообщений',
+          child: const Card(
+            margin: EdgeInsets.all(8.0),
+            // Вы можете добавить контент для страницы сообщений здесь
+          ),
+        ),
       ][currentPageIndex],
     );
   }

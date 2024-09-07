@@ -7,99 +7,119 @@ class FaceExercisesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Ваш существующий код для FaceExercisesWidget
     return Padding(
       padding: const EdgeInsets.only(top: 15),
       child: Center(
         child: Column(
           children: [
-            Text(
-              'Face Exercises'.toUpperCase(),
-              style: const TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.w800,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 15),
+            Semantics(
+              label: 'Заголовок упражнений для лица',
               child: Text(
-                'Лучше всего подходит \nдля лица'.toUpperCase(),
+                'Face Exercises'.toUpperCase(),
                 style: const TextStyle(
-                  fontSize: 18,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 15),
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Column(
-                      children: [
-                        Text(
-                          '16',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w800,
-                            color: Color.fromRGBO(255, 51, 119, 1),
-                          ),
-                        ),
-                        Text(
-                          'Упражнений',
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      height: 45,
-                      width: 1,
-                      color: Colors.blueGrey,
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                      ),
-                    ),
-                    const Column(
-                      children: [
-                        Text(
-                          '21',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w800,
-                            color: Color.fromRGBO(255, 51, 119, 1),
-                          ),
-                        ),
-                        Text(
-                          'Минут',
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                  fontSize: 25,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 16, bottom: 5),
-              child: Divider(
-                color: Colors.grey,
-                thickness: 3,
-              ),
-            ),
-            Container(
-              alignment: Alignment.centerLeft,
-              child: const Padding(
-                padding: EdgeInsets.only(left: 16, bottom: 5),
+            Semantics(
+              label: 'Подзаголовок, описывающий упражнения',
+              child: Padding(
+                padding: const EdgeInsets.only(top: 15),
                 child: Text(
-                  'Список упражнений',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+                  'Лучше всего подходит \nдля лица'.toUpperCase(),
+                  style: const TextStyle(
+                    fontSize: 18,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+            Semantics(
+              label: 'Количество упражнений и длительность',
+              child: Padding(
+                padding: const EdgeInsets.only(top: 15),
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Semantics(
+                        label: 'Количество упражнений: 16',
+                        child: const Column(
+                          children: [
+                            Text(
+                              '16',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w800,
+                                color: Color.fromRGBO(255, 51, 119, 1),
+                              ),
+                            ),
+                            Text(
+                              'Упражнений',
+                              style: TextStyle(
+                                fontSize: 18,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        height: 45,
+                        width: 1,
+                        color: Colors.blueGrey,
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: 20,
+                        ),
+                      ),
+                      Semantics(
+                        label: 'Длительность: 21 минута',
+                        child: const Column(
+                          children: [
+                            Text(
+                              '21',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w800,
+                                color: Color.fromRGBO(255, 51, 119, 1),
+                              ),
+                            ),
+                            Text(
+                              'Минут',
+                              style: TextStyle(
+                                fontSize: 18,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Semantics(
+              label: 'Разделитель между секциями',
+              child: const Padding(
+                padding: EdgeInsets.only(top: 16, bottom: 5),
+                child: Divider(
+                  color: Colors.grey,
+                  thickness: 3,
+                ),
+              ),
+            ),
+            Semantics(
+              label: 'Заголовок списка упражнений',
+              child: Container(
+                alignment: Alignment.centerLeft,
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 16, bottom: 5),
+                  child: Text(
+                    'Список упражнений',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),

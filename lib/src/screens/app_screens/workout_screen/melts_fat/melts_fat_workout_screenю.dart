@@ -32,25 +32,34 @@ class MeltsFatWorkoutScreenState extends State<MeltsFatWorkoutScreen> {
           SliverAppBar(
             title: _isImageVisible
                 ? null
-                : const Text(
-                    'Всё тело',
-                    style: TextStyle(fontWeight: FontWeight.w600),
+                : Semantics(
+                    label: 'Заголовок страницы: Всё тело',
+                    child: const Text(
+                      'Всё тело',
+                      style: TextStyle(fontWeight: FontWeight.w600),
+                    ),
                   ),
             expandedHeight: 200.0,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                'assets/images/training_image/workout_image/GIRL_WITH.jpg',
-                fit: BoxFit.cover,
+              background: Semantics(
+                label: 'Изображение для тренировки всего тела',
+                child: Image.asset(
+                  'assets/images/training_image/workout_image/GIRL_WITH.jpg',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
-          const SliverToBoxAdapter(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                MeltsFatWidget(),
-              ],
+          SliverToBoxAdapter(
+            child: Semantics(
+              label: 'Упражнения для сжигания жира',
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  MeltsFatWidget(),
+                ],
+              ),
             ),
           ),
         ],
