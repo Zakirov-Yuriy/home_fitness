@@ -22,7 +22,9 @@ class ContainerCarouselSix extends StatelessWidget {
         itemCount: images.length, // Use the length of the images list
         itemBuilder: (BuildContext context, int index) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
+            padding: EdgeInsets.only(
+              left: index == 1 ? 0 : 0,
+            ),
             child: Stack(
               children: [
                 Container(
@@ -89,7 +91,7 @@ class ContainerCarouselSix extends StatelessWidget {
           );
         },
         scrollDirection: Axis.horizontal,
-        controller: PageController(viewportFraction: 0.95),
+        controller: PageController(viewportFraction: 0.88),
       ),
     );
   }

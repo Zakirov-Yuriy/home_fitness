@@ -30,7 +30,7 @@ class ContainerCarouselOne extends StatelessWidget {
           return Padding(
             padding: EdgeInsets.only(
               left: index == 1 ? 0 : 0,
-              right: index == 0 ? 30 : 0,
+              right: index == 0 ? 20 : 0,
             ),
             child: Semantics(
               label: 'Картинка тренировки: ${titles[index]}',
@@ -135,7 +135,7 @@ class ContainerCarouselOne extends StatelessWidget {
           );
         },
         scrollDirection: Axis.horizontal,
-        controller: PageController(viewportFraction: 0.95),
+        controller: PageController(viewportFraction: 0.88),
       ),
     );
   }

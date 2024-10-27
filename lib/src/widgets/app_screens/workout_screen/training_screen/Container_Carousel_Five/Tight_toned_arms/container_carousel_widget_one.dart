@@ -106,7 +106,7 @@ class ContainerCarouselFive extends StatelessWidget {
           );
         },
         scrollDirection: Axis.horizontal,
-        controller: PageController(viewportFraction: 0.95),
+        controller: PageController(viewportFraction: 0.88),
       ),
     );
   }

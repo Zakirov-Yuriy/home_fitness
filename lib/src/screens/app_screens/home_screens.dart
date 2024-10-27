@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/src/screens/app_screens/workout_screen/Face_exercises/face_exercises_workout_screen%D1%8E.dart';
 import '../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_Five/Tight_toned_arms/container_carousel_widget_one.dart';
 import '../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_Four/Bigger_booty/container_carousel_widget_one.dart';
 import '../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_One/your_body/container_carousel_widget_one.dart';
@@ -38,7 +39,7 @@ class HomeScreenState extends State<HomeScreen> {
               child: Container(
                 alignment: Alignment.bottomLeft,
                 child: const Padding(
-                  padding: EdgeInsets.only(left: 10, bottom: 10, top: 20),
+                  padding: EdgeInsets.only(left: 10, bottom: 10, top: 30),
                   child: Text(
                     'Фитнес для женщин',
                     style: TextStyle(
@@ -97,6 +98,7 @@ class HomeScreenState extends State<HomeScreen> {
               child: ContainerCarouselSix(),
             ),
             const SizedBox(height: 20),
+
             // Дополнительный контент
           ],
         ),
