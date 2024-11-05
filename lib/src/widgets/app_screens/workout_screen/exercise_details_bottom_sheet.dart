@@ -197,26 +197,63 @@ class _ExerciseDetailsBottomSheetState
             const SizedBox(height: 26),
             Semantics(
               label: 'Закрыть',
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(double.infinity, 50),
-                  backgroundColor: const Color.fromRGBO(255, 51, 119, 1),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [
+                      Color.fromRGBO(255, 51, 119, 1), // Основной цвет
+                      Color.fromRGBO(255, 102, 153, 1), // Светлее для градиента
+                    ],
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
                   ),
+                  borderRadius: BorderRadius.circular(30),
                 ),
-                child: const Text(
-                  'Закрыть',
-                  style: TextStyle(
-                    fontSize: 24.0,
-                    color: Colors.white,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(double.infinity, 50),
+                    backgroundColor: Colors.transparent, // Прозрачный фон
+                    shadowColor: Colors.transparent, // Убираем тень
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  child: const Text(
+                    'Закрыть',
+                    style: TextStyle(
+                      fontSize: 24.0,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
             ),
+
+            // Semantics(
+            //   label: 'Закрыть',
+            //   child: ElevatedButton(
+            //     onPressed: () {
+            //       Navigator.of(context).pop();
+            //     },
+            //     style: ElevatedButton.styleFrom(
+            //       minimumSize: const Size(double.infinity, 50),
+            //       backgroundColor: const Color.fromRGBO(255, 51, 119, 1),
+            //       shape: RoundedRectangleBorder(
+            //         borderRadius: BorderRadius.circular(30),
+            //       ),
+            //     ),
+            //     child: const Text(
+            //       'Закрыть',
+            //       style: TextStyle(
+            //         fontSize: 24.0,
+            //         color: Colors.white,
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),

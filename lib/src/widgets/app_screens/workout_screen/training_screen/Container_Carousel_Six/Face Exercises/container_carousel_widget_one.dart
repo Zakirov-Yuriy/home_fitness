@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/src/widgets/app_screens/workout_screen/custom_gradient_button_start.dart';
 import '../../../../../../screens/app_screens/workout_screen/Face_exercises/face_exercises_workout_screenю.dart'; // Corrected import path
 
 class ContainerCarouselSix extends StatelessWidget {
@@ -60,29 +61,43 @@ class ContainerCarouselSix extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 10),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  const FaceExercisesWorkoutScreen(),
-                            ),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor:
-                              const Color.fromRGBO(255, 51, 119, 1),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          minimumSize: const Size(150, 35),
-                        ),
-                        child: const Text(
-                          'Начать',
-                          style: TextStyle(fontSize: 18),
+                      Semantics(
+                        label: 'Кнопка начать программу ${titles[index]}',
+                        child: CustomGradientButton(
+                          label: 'Начать',
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const FaceExercisesWorkoutScreen(),
+                              ),
+                            );
+                          },
                         ),
                       ),
+                      // ElevatedButton(
+                      //   onPressed: () {
+                      //     Navigator.of(context).push(
+                      //       MaterialPageRoute(
+                      //         builder: (context) =>
+                      //             const FaceExercisesWorkoutScreen(),
+                      //       ),
+                      //     );
+                      //   },
+                      //   style: ElevatedButton.styleFrom(
+                      //     foregroundColor: Colors.white,
+                      //     backgroundColor:
+                      //         const Color.fromRGBO(255, 51, 119, 1),
+                      //     shape: RoundedRectangleBorder(
+                      //       borderRadius: BorderRadius.circular(15),
+                      //     ),
+                      //     minimumSize: const Size(150, 35),
+                      //   ),
+                      //   child: const Text(
+                      //     'Начать',
+                      //     style: TextStyle(fontSize: 18),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),

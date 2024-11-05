@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/src/widgets/app_screens/workout_screen/custom_gradient_button_start.dart';
 import '../../../../../../screens/app_screens/workout_screen/Bigger_booty/Bigger_booty_workout_screenю.dart';
 import '../../../../../../screens/app_screens/workout_screen/TrimButtAndLegs/Trim_butt_and-legs_workout_screenю.dart';
 
@@ -80,54 +81,82 @@ class ContainerCarouselFour extends StatelessWidget {
                       const SizedBox(height: 10),
                       // Кнопка "Начать" для первой программы
                       if (index == 0)
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    const BiggerBootyWorkoutScreen(),
-                              ),
-                            );
-                          },
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.white,
-                            backgroundColor:
-                                const Color.fromRGBO(255, 51, 119, 1),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            minimumSize: const Size(150, 35),
-                          ),
-                          child: const Text(
-                            'Начать',
-                            style: TextStyle(fontSize: 18),
+                        Semantics(
+                          label: 'Кнопка Начать для ${titles[index]}',
+                          child: CustomGradientButton(
+                            label: 'Начать',
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const BiggerBootyWorkoutScreen(),
+                                ),
+                              );
+                            },
                           ),
                         ),
+                      // ElevatedButton(
+                      //   onPressed: () {
+                      //     Navigator.of(context).push(
+                      //       MaterialPageRoute(
+                      //         builder: (context) =>
+                      //             const BiggerBootyWorkoutScreen(),
+                      //       ),
+                      //     );
+                      //   },
+                      //   style: ElevatedButton.styleFrom(
+                      //     foregroundColor: Colors.white,
+                      //     backgroundColor:
+                      //         const Color.fromRGBO(255, 51, 119, 1),
+                      //     shape: RoundedRectangleBorder(
+                      //       borderRadius: BorderRadius.circular(15),
+                      //     ),
+                      //     minimumSize: const Size(150, 35),
+                      //   ),
+                      //   child: const Text(
+                      //     'Начать',
+                      //     style: TextStyle(fontSize: 18),
+                      //   ),
+                      // ),
                       // Кнопка "Начать" для второй программы
                       if (index == 1)
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    const TrimButtAndLegsWorkoutScreen(),
-                              ),
-                            );
-                          },
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.white,
-                            backgroundColor: Colors.pink,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            minimumSize: const Size(150, 35),
-                          ),
-                          child: const Text(
-                            'Начать',
-                            style: TextStyle(fontSize: 18),
+                        Semantics(
+                          label: 'Кнопка Начать для ${titles[index]}',
+                          child: CustomGradientButton(
+                            label: 'Начать',
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const TrimButtAndLegsWorkoutScreen(),
+                                ),
+                              );
+                            },
                           ),
                         ),
+                      // ElevatedButton(
+                      //   onPressed: () {
+                      //     Navigator.push(
+                      //       context,
+                      //       MaterialPageRoute(
+                      //         builder: (context) =>
+                      //             const TrimButtAndLegsWorkoutScreen(),
+                      //       ),
+                      //     );
+                      //   },
+                      //   style: ElevatedButton.styleFrom(
+                      //     foregroundColor: Colors.white,
+                      //     backgroundColor: Colors.pink,
+                      //     shape: RoundedRectangleBorder(
+                      //       borderRadius: BorderRadius.circular(15),
+                      //     ),
+                      //     minimumSize: const Size(150, 35),
+                      //   ),
+                      //   child: const Text(
+                      //     'Начать',
+                      //     style: TextStyle(fontSize: 18),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),

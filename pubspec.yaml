@@ -42,6 +42,8 @@ dependencies:
   firebase_core: ^3.6.0
   firebase_messaging: ^15.1.3
   cloud_firestore: ^5.4.4
+  firebase_auth: ^5.3.1
+  email_validator: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +80,7 @@ flutter:
     - assets/images/training_image/workout_image/trim butt and legs/
     - assets/images/training_image/workout_image/tight_toned_arms/
     - assets/images/training_image/workout_image/Face exercises/
+    - assets/images/logo/logo2.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

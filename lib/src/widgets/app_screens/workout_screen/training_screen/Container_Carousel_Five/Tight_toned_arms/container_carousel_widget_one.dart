@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:home_fitness/src/screens/app_screens/workout_screen/tight_toned_arms/tight_toned_arms_workout_screen%D1%8E.dart';
+import 'package:home_fitness/src/widgets/app_screens/workout_screen/custom_gradient_button_start.dart';
 
 class ContainerCarouselFive extends StatelessWidget {
   final List<String> images = [
@@ -72,9 +73,9 @@ class ContainerCarouselFive extends StatelessWidget {
                       const SizedBox(height: 10),
                       if (index == 0)
                         Semantics(
-                          button: true,
                           label: 'Кнопка начать программу ${titles[index]}',
-                          child: ElevatedButton(
+                          child: CustomGradientButton(
+                            label: 'Начать',
                             onPressed: () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
@@ -83,21 +84,35 @@ class ContainerCarouselFive extends StatelessWidget {
                                 ),
                               );
                             },
-                            style: ElevatedButton.styleFrom(
-                              foregroundColor: Colors.white,
-                              backgroundColor:
-                                  const Color.fromRGBO(255, 51, 119, 1),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              minimumSize: const Size(150, 35),
-                            ),
-                            child: const Text(
-                              'Начать',
-                              style: TextStyle(fontSize: 18),
-                            ),
                           ),
                         ),
+                      // Semantics(
+                      //   button: true,
+                      //   label: 'Кнопка начать программу ${titles[index]}',
+                      //   child: ElevatedButton(
+                      //     onPressed: () {
+                      //       Navigator.of(context).push(
+                      //         MaterialPageRoute(
+                      //           builder: (context) =>
+                      //               const TightTonedArmsWorkoutScreen(),
+                      //         ),
+                      //       );
+                      //     },
+                      //     style: ElevatedButton.styleFrom(
+                      //       foregroundColor: Colors.white,
+                      //       backgroundColor:
+                      //           const Color.fromRGBO(255, 51, 119, 1),
+                      //       shape: RoundedRectangleBorder(
+                      //         borderRadius: BorderRadius.circular(15),
+                      //       ),
+                      //       minimumSize: const Size(150, 35),
+                      //     ),
+                      //     child: const Text(
+                      //       'Начать',
+                      //       style: TextStyle(fontSize: 18),
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),

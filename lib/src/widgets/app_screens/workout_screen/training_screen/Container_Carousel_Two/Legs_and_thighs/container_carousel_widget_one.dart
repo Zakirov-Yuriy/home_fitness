@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:home_fitness/src/screens/app_screens/workout_screen/glutes_and_legs/glutes_and_legs_workout_screen%D1%8E.dart';
 import 'package:home_fitness/src/screens/app_screens/workout_screen/legs_and_thighs/legs_and_thighs_workout_screen%D1%8E.dart';
+import 'package:home_fitness/src/widgets/app_screens/workout_screen/custom_gradient_button_start.dart';
 
 class ContainerCarouselTwo extends StatelessWidget {
   final List<String> images = [
@@ -78,7 +79,8 @@ class ContainerCarouselTwo extends StatelessWidget {
                       if (index == 0)
                         Semantics(
                           label: 'Кнопка Начать для ${titles[index]}',
-                          child: ElevatedButton(
+                          child: CustomGradientButton(
+                            label: 'Начать',
                             onPressed: () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
@@ -87,49 +89,76 @@ class ContainerCarouselTwo extends StatelessWidget {
                                 ),
                               );
                             },
-                            style: ElevatedButton.styleFrom(
-                              foregroundColor: Colors.white,
-                              backgroundColor:
-                                  const Color.fromRGBO(255, 51, 119, 1),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              minimumSize: const Size(150, 35),
-                            ),
-                            child: const Text(
-                              'Начать',
-                              style: TextStyle(fontSize: 18),
-                            ),
                           ),
                         ),
+                      // Semantics(
+                      //   label: 'Кнопка Начать для ${titles[index]}',
+                      //   child: ElevatedButton(
+                      //     onPressed: () {
+                      //       Navigator.of(context).push(
+                      //         MaterialPageRoute(
+                      //           builder: (context) =>
+                      //               const LegsAndThighsWorkoutScreen(),
+                      //         ),
+                      //       );
+                      //     },
+                      //     style: ElevatedButton.styleFrom(
+                      //       foregroundColor: Colors.white,
+                      //       backgroundColor:
+                      //           const Color.fromRGBO(255, 51, 119, 1),
+                      //       shape: RoundedRectangleBorder(
+                      //         borderRadius: BorderRadius.circular(15),
+                      //       ),
+                      //       minimumSize: const Size(150, 35),
+                      //     ),
+                      //     child: const Text(
+                      //       'Начать',
+                      //       style: TextStyle(fontSize: 18),
+                      //     ),
+                      //   ),
+                      // ),
                       // Условие для отображения кнопки "Начать" только для Программа 9x25
                       if (index == 1)
                         Semantics(
                           label: 'Кнопка Начать для ${titles[index]}',
-                          child: ElevatedButton(
+                          child: CustomGradientButton(
+                            label: 'Начать',
                             onPressed: () {
-                              Navigator.push(
-                                context,
+                              Navigator.of(context).push(
                                 MaterialPageRoute(
                                   builder: (context) =>
                                       const GlutesAndLegsWorkoutScreen(),
                                 ),
                               );
                             },
-                            style: ElevatedButton.styleFrom(
-                              foregroundColor: Colors.white,
-                              backgroundColor: Colors.pink,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              minimumSize: const Size(150, 35),
-                            ),
-                            child: const Text(
-                              'Начать',
-                              style: TextStyle(fontSize: 18),
-                            ),
                           ),
                         ),
+                      // Semantics(
+                      //   label: 'Кнопка Начать для ${titles[index]}',
+                      //   child: ElevatedButton(
+                      //     onPressed: () {
+                      //       Navigator.push(
+                      //         context,
+                      //         MaterialPageRoute(
+                      //           builder: (context) =>
+                      //               const GlutesAndLegsWorkoutScreen(),
+                      //         ),
+                      //       );
+                      //     },
+                      //     style: ElevatedButton.styleFrom(
+                      //       foregroundColor: Colors.white,
+                      //       backgroundColor: Colors.pink,
+                      //       shape: RoundedRectangleBorder(
+                      //         borderRadius: BorderRadius.circular(15),
+                      //       ),
+                      //       minimumSize: const Size(150, 35),
+                      //     ),
+                      //     child: const Text(
+                      //       'Начать',
+                      //       style: TextStyle(fontSize: 18),
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
