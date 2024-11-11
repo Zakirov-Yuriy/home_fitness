@@ -174,7 +174,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
 
   Future<void> resetPassword() async {
     final navigator = Navigator.of(context);
-    final scaffoldMassager = ScaffoldMessenger.of(context);
+    final scaffoldMessenger = ScaffoldMessenger.of(context);
 
     final isValid = formKey.currentState!.validate();
     if (!isValid) return;
@@ -207,7 +207,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
       backgroundColor: Colors.green,
     );
 
-    scaffoldMassager.showSnackBar(snackBar);
+    scaffoldMessenger.showSnackBar(snackBar);
     navigator.pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
   }
 
@@ -224,40 +224,50 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
           key: formKey,
           child: Column(
             children: [
-              // Логотип в верхней части экрана
               const SizedBox(height: 68),
-              Image.asset(
-                'assets/images/logo/logo2.png', // путь к файлу логотипа
-                width: 200,
-                height: 200,
-              ),
-              const SizedBox(height: 30),
 
-              // Поле ввода email
-              TextFormField(
-                keyboardType: TextInputType.emailAddress,
-                autocorrect: false,
-                controller: emailTextInputController,
-                validator: (email) =>
-                    email != null && !EmailValidator.validate(email)
-                        ? 'Введите правильный Email'
-                        : null,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Введите Email',
+              // Семантика для логотипа
+              Semantics(
+                label: 'Логотип приложения',
+                child: Image.asset(
+                  'assets/images/logo/logo2.png', // путь к файлу логотипа
+                  width: 200,
+                  height: 200,
                 ),
               ),
               const SizedBox(height: 30),
 
-              // Кнопка для сброса пароля
+              // Семантика для поля ввода email
               Semantics(
-                label: 'Сбросить пароль',
+                label: 'Поле для ввода электронной почты',
+                hint: 'Введите ваш email для сброса пароля',
+                child: TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  autocorrect: false,
+                  controller: emailTextInputController,
+                  validator: (email) =>
+                      email != null && !EmailValidator.validate(email)
+                          ? 'Введите правильный Email'
+                          : null,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Введите Email',
+                  ),
+                ),
+              ),
+              const SizedBox(height: 30),
+
+              // Семантика для кнопки сброса пароля
+              Semantics(
+                label: 'Кнопка для сброса пароля',
+                hint: 'Нажмите, чтобы сбросить пароль',
+                button: true,
                 child: Container(
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
                       colors: [
-                        Color.fromRGBO(255, 51, 119, 1), // Основной цвет
-                        Color.fromRGBO(255, 102, 153, 1), // Светлый оттенок
+                        Color.fromRGBO(255, 51, 119, 1),
+                        Color.fromRGBO(255, 102, 153, 1),
                       ],
                       begin: Alignment.bottomCenter,
                       end: Alignment.topCenter,
@@ -267,8 +277,8 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(double.infinity, 50),
-                      backgroundColor: Colors.transparent, // Прозрачный фон
-                      shadowColor: Colors.transparent, // Без тени
+                      backgroundColor: Colors.transparent,
+                      shadowColor: Colors.transparent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),

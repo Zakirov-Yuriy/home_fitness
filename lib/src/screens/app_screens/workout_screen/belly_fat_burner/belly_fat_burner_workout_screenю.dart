@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/generated/l10n.dart';
 
 import '../../../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_Three/Belly_fat_burner/belly_fat_burner_widget.dart';
 
@@ -37,9 +38,11 @@ class BellyFatBurnerWorkoutScreenState
                 ? null
                 : Semantics(
                     label: 'Заголовок страницы: Убираем жир с живота',
-                    child: const Text(
-                      'Убираем жир с живота',
-                      style: TextStyle(fontWeight: FontWeight.w600),
+                    child: Text(
+                      S.of(context).Removing_belly_fat2,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
             expandedHeight: 200.0,

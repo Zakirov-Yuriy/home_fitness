@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/generated/l10n.dart';
 
 import 'melts_fat_content_widget.dart';
 
@@ -15,7 +16,7 @@ class MeltsFatWidget extends StatelessWidget {
             Semantics(
               label: 'Всё тело. Короткие упражнения интенсивный и насыщенный.',
               child: Text(
-                'Всё тело'.toUpperCase(),
+                S.of(context).Whole_body.toUpperCase(),
                 style: const TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.w800,
@@ -26,8 +27,8 @@ class MeltsFatWidget extends StatelessWidget {
               padding: const EdgeInsets.only(top: 15),
               child: Semantics(
                 label: 'Короткие упражнения интенсивный и насыщенный.',
-                child: const Text(
-                  'КОРОТКИЕ УПРАЖНЕНИЯ ИНТЕНСИВНЫЙ И НАСЫЩЕННЫЙ',
+                child: Text(
+                  S.of(context).SHORT_EXERCISES_INTENSIVE_AND_SATURAL,
                   style: TextStyle(
                     fontSize: 18,
                   ),
@@ -43,7 +44,7 @@ class MeltsFatWidget extends StatelessWidget {
                   children: [
                     Semantics(
                       label: '8 упражнений',
-                      child: const Column(
+                      child: Column(
                         children: [
                           Text(
                             '8',
@@ -54,7 +55,7 @@ class MeltsFatWidget extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            'Упражнений',
+                            S.of(context).Exercises,
                             style: TextStyle(
                               fontSize: 18,
                             ),
@@ -72,7 +73,7 @@ class MeltsFatWidget extends StatelessWidget {
                     ),
                     Semantics(
                       label: '21 минута',
-                      child: const Column(
+                      child: Column(
                         children: [
                           Text(
                             '21',
@@ -83,7 +84,7 @@ class MeltsFatWidget extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            'Минут',
+                            S.of(context).Minutes,
                             style: TextStyle(
                               fontSize: 18,
                             ),
@@ -103,13 +104,13 @@ class MeltsFatWidget extends StatelessWidget {
               ),
             ),
             Semantics(
-              label: 'Список упражнений',
+              label: S.of(context).List_of_exercises,
               child: Container(
                 alignment: Alignment.centerLeft,
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.only(left: 16, bottom: 5),
                   child: Text(
-                    'Список упражнений',
+                    S.of(context).List_of_exercises,
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,

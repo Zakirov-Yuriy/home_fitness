@@ -229,7 +229,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<void> login() async {
     final navigator = Navigator.of(context);
-
     final isValid = formKey.currentState!.validate();
     if (!isValid) return;
 
@@ -240,7 +239,6 @@ class _LoginScreenState extends State<LoginScreen> {
       );
     } on FirebaseAuthException catch (e) {
       print(e.code);
-
       if (e.code == 'user-not-found' || e.code == 'wrong-password') {
         SnackBarService.showSnackBar(
           context,
@@ -276,50 +274,60 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // Логотип приложения
-              Image.asset(
-                'assets/images/logo/logo2.png', // Путь к вашему логотипу
-                height: 200, // Настройте размер логотипа по желанию
+              Semantics(
+                label: 'Логотип приложения',
+                child: Image.asset(
+                  'assets/images/logo/logo2.png',
+                  height: 200,
+                ),
               ),
-              const SizedBox(
-                  height: 40), // Отступ между логотипом и полем для email
+              const SizedBox(height: 40),
 
-              TextFormField(
-                keyboardType: TextInputType.emailAddress,
-                autocorrect: false,
-                controller: emailTextInputController,
-                validator: (email) =>
-                    email != null && !EmailValidator.validate(email)
-                        ? 'Введите правильный Email'
-                        : null,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Введите Email',
+              Semantics(
+                label: 'Введите Email',
+                child: TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  autocorrect: false,
+                  controller: emailTextInputController,
+                  validator: (email) =>
+                      email != null && !EmailValidator.validate(email)
+                          ? 'Введите правильный Email'
+                          : null,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Введите Email',
+                  ),
                 ),
               ),
               const SizedBox(height: 30),
-              TextFormField(
-                autocorrect: false,
-                controller: passwordTextInputController,
-                obscureText: isHiddenPassword,
-                validator: (value) => value != null && value.length < 6
-                    ? 'Минимум 6 символов'
-                    : null,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  hintText: 'Введите пароль',
-                  suffix: InkWell(
-                    onTap: togglePasswordView,
-                    child: Icon(
-                      isHiddenPassword
-                          ? Icons.visibility_off
-                          : Icons.visibility,
-                      color: Colors.black,
+
+              Semantics(
+                label: 'Введите пароль',
+                child: TextFormField(
+                  autocorrect: false,
+                  controller: passwordTextInputController,
+                  obscureText: isHiddenPassword,
+                  validator: (value) => value != null && value.length < 6
+                      ? 'Минимум 6 символов'
+                      : null,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  decoration: InputDecoration(
+                    border: const OutlineInputBorder(),
+                    hintText: 'Введите пароль',
+                    suffix: InkWell(
+                      onTap: togglePasswordView,
+                      child: Icon(
+                        isHiddenPassword
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                 ),
               ),
               const SizedBox(height: 30),
+
               Semantics(
                 label: 'Войти',
                 child: Container(
@@ -355,22 +363,29 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const SizedBox(height: 30),
-              TextButton(
-                onPressed: () => Navigator.of(context).pushNamed('/signup'),
-                child: const Text(
-                  'Регистрация',
-                  style: TextStyle(
-                    color: Colors.black,
+
+              Semantics(
+                label: 'Перейти к регистрации',
+                child: TextButton(
+                  onPressed: () => Navigator.of(context).pushNamed('/signup'),
+                  child: const Text(
+                    'Регистрация',
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
                   ),
                 ),
               ),
-              TextButton(
-                onPressed: () =>
-                    Navigator.of(context).pushNamed('/reset_password'),
-                child: const Text(
-                  'Сбросить пароль',
-                  style: TextStyle(
-                    color: Colors.black,
+              Semantics(
+                label: 'Перейти к сбросу пароля',
+                child: TextButton(
+                  onPressed: () =>
+                      Navigator.of(context).pushNamed('/reset_password'),
+                  child: const Text(
+                    'Сбросить пароль',
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
                   ),
                 ),
               ),

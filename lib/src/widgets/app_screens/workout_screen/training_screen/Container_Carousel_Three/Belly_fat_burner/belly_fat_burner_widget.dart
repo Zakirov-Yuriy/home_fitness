@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/generated/l10n.dart';
 import 'belly_fat_burner_content_widget.dart';
 
 class BellyFatBurnerWidget extends StatelessWidget {
@@ -16,7 +17,7 @@ class BellyFatBurnerWidget extends StatelessWidget {
               Semantics(
                 label: 'Заголовок: Убираем жир с живота',
                 child: Text(
-                  'Убираем жир с живота'.toUpperCase(),
+                  S.of(context).Removing_belly_fat2.toUpperCase(),
                   style: const TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.w800,
@@ -29,7 +30,7 @@ class BellyFatBurnerWidget extends StatelessWidget {
                   label:
                       'Подзаголовок: Лучше всего подходит для боков и живота',
                   child: Text(
-                    'Лучше всего подходит для боков и живота'.toUpperCase(),
+                    S.of(context).Best_for_sides_and_belly.toUpperCase(),
                     style: const TextStyle(
                       fontSize: 18,
                     ),
@@ -45,7 +46,7 @@ class BellyFatBurnerWidget extends StatelessWidget {
                     children: [
                       Semantics(
                         label: 'Количество упражнений: 8',
-                        child: const Column(
+                        child: Column(
                           children: [
                             Text(
                               '8',
@@ -56,7 +57,7 @@ class BellyFatBurnerWidget extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              'Упражнений',
+                              S.of(context).Exercises,
                               style: TextStyle(
                                 fontSize: 18,
                               ),
@@ -74,7 +75,7 @@ class BellyFatBurnerWidget extends StatelessWidget {
                       ),
                       Semantics(
                         label: 'Продолжительность: 20 минут',
-                        child: const Column(
+                        child: Column(
                           children: [
                             Text(
                               '20',
@@ -85,7 +86,7 @@ class BellyFatBurnerWidget extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              'Минут',
+                              S.of(context).Minutes,
                               style: TextStyle(
                                 fontSize: 18,
                               ),
@@ -108,10 +109,10 @@ class BellyFatBurnerWidget extends StatelessWidget {
                 label: 'Заголовок раздела: Список упражнений',
                 child: Container(
                   alignment: Alignment.centerLeft,
-                  child: const Padding(
+                  child: Padding(
                     padding: EdgeInsets.only(left: 16, bottom: 5),
                     child: Text(
-                      'Список упражнений',
+                      S.of(context).List_of_exercises,
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,

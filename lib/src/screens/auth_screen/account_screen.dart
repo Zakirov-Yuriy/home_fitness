@@ -81,20 +81,30 @@ class _AccountScreenState extends State<AccountScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(
-            Icons.arrow_back,
+        leading: Semantics(
+          label: 'Назад',
+          hint: 'Вернуться к предыдущему экрану',
+          button: true,
+          child: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_back,
+            ),
           ),
         ),
         title: const Text('Аккаунт'),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            tooltip: 'Выйти',
-            onPressed: () => signOut(),
+          Semantics(
+            label: 'Выйти из аккаунта',
+            hint: 'Нажмите, чтобы выйти',
+            button: true,
+            child: IconButton(
+              icon: const Icon(Icons.logout),
+              tooltip: 'Выйти',
+              onPressed: () => signOut(),
+            ),
           ),
         ],
       ),
@@ -104,22 +114,34 @@ class _AccountScreenState extends State<AccountScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Логотип в верхней части экрана
-              Image.asset(
-                'assets/images/logo/logo2.png', // путь к файлу логотипа
-                width: 200,
-                height: 200,
+              Semantics(
+                label: 'Логотип приложения',
+                hint: 'Логотип на верхней части экрана',
+                image: true,
+                child: Image.asset(
+                  'assets/images/logo/logo2.png', // путь к файлу логотипа
+                  width: 200,
+                  height: 200,
+                ),
               ),
               const SizedBox(height: 30),
 
               // Отображение email пользователя
-              Text('Ваш Email: ${user?.email}'),
+              Semantics(
+                label: 'Ваш Email',
+                child: Text('Ваш Email: ${user?.email ?? 'Неизвестен'}'),
+              ),
               const SizedBox(height: 20),
 
               // Кнопка выхода
-              TextButton(
-                onPressed: () => signOut(),
-                child: const Text('Выйти'),
+              Semantics(
+                label: 'Кнопка выхода',
+                hint: 'Нажмите, чтобы выйти из аккаунта',
+                button: true,
+                child: TextButton(
+                  onPressed: () => signOut(),
+                  child: const Text('Выйти'),
+                ),
               ),
             ],
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/generated/l10n.dart';
 import 'package:video_player/video_player.dart';
 import 'video_player_controls/video_player_controls.dart';
 
@@ -65,7 +66,7 @@ class _ExerciseDetailsBottomSheetState
             Semantics(
               label: 'Выбор между изображением и видео',
               child: Padding(
-                padding: const EdgeInsets.only(bottom: 10),
+                padding: EdgeInsets.only(bottom: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -79,7 +80,7 @@ class _ExerciseDetailsBottomSheetState
                       child: Semantics(
                         label: 'Изображение',
                         child: Text(
-                          'Анимация',
+                          S.of(context).Animation,
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -98,7 +99,7 @@ class _ExerciseDetailsBottomSheetState
                       child: Semantics(
                         label: 'Видео',
                         child: Text(
-                          'Видео',
+                          S.of(context).Video,
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -221,8 +222,8 @@ class _ExerciseDetailsBottomSheetState
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  child: const Text(
-                    'Закрыть',
+                  child: Text(
+                    S.of(context).Close,
                     style: TextStyle(
                       fontSize: 24.0,
                       color: Colors.white,

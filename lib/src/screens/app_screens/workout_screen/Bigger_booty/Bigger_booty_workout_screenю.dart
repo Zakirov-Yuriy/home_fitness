@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/generated/l10n.dart';
 import '../../../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_Four/Bigger_booty/Bigger_booty_widget.dart';
 
 class BiggerBootyWorkoutScreen extends StatefulWidget {
@@ -35,8 +36,8 @@ class BiggerBootyWorkoutScreenState extends State<BiggerBootyWorkoutScreen> {
                 ? null
                 : Semantics(
                     label: 'Заголовок страницы: Большая попка',
-                    child: const Text(
-                      'Большая попка',
+                    child: Text(
+                      S.of(context).Big_Booty,
                       style: TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ),

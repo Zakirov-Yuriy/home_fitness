@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/generated/l10n.dart';
 import 'tight_toned_arms_content_widget.dart';
 
 class TightTonedArmsWidget extends StatelessWidget {
@@ -14,7 +15,7 @@ class TightTonedArmsWidget extends StatelessWidget {
             Semantics(
               label: 'Заголовок: Подтянутые руки',
               child: Text(
-                'Подтянутые руки'.toUpperCase(),
+                S.of(context).Tight_arms2.toUpperCase(),
                 style: const TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.w800,
@@ -26,7 +27,7 @@ class TightTonedArmsWidget extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(top: 15),
                 child: Text(
-                  'Лучше всего подходит для \nрук и предплечий'.toUpperCase(),
+                  S.of(context).Best_for_hands_and_forearms.toUpperCase(),
                   style: const TextStyle(
                     fontSize: 18,
                   ),
@@ -42,7 +43,7 @@ class TightTonedArmsWidget extends StatelessWidget {
                   children: [
                     Semantics(
                       label: 'Количество упражнений: 9',
-                      child: const Column(
+                      child: Column(
                         children: [
                           Text(
                             '9',
@@ -53,7 +54,7 @@ class TightTonedArmsWidget extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            'Упражнений',
+                            S.of(context).Exercises,
                             style: TextStyle(
                               fontSize: 18,
                             ),
@@ -69,7 +70,7 @@ class TightTonedArmsWidget extends StatelessWidget {
                     ),
                     Semantics(
                       label: 'Общее время: 21 минута',
-                      child: const Column(
+                      child: Column(
                         children: [
                           Text(
                             '21',
@@ -80,7 +81,7 @@ class TightTonedArmsWidget extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            'Минут',
+                            S.of(context).Minutes,
                             style: TextStyle(
                               fontSize: 18,
                             ),
@@ -103,10 +104,10 @@ class TightTonedArmsWidget extends StatelessWidget {
               label: 'Заголовок: Список упражнений',
               child: Container(
                 alignment: Alignment.centerLeft,
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.only(left: 16, bottom: 5),
                   child: Text(
-                    'Список упражнений',
+                    S.of(context).List_of_exercises,
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,

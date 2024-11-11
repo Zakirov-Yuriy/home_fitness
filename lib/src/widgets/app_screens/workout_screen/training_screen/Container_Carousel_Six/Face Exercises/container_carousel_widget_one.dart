@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/generated/l10n.dart';
 import 'package:home_fitness/src/widgets/app_screens/workout_screen/custom_gradient_button_start.dart';
 import '../../../../../../screens/app_screens/workout_screen/Face_exercises/face_exercises_workout_screenю.dart'; // Corrected import path
 
@@ -7,16 +8,23 @@ class ContainerCarouselSix extends StatelessWidget {
     'assets/images/training_image/workout_image/Face exercises/Face Exercises.png',
   ];
 
-  final List<String> titles = [
-    'Программа 16x21',
-  ];
+  // final List<String> titles = [
+  //   'Программа 16x21',
+  // ];
 
-  final List<String> subtitles = [
-    'Face \nExercises',
-  ];
+  // final List<String> subtitles = [
+  //   'Упражнения \n для лица',
+  // ];
 
   @override
   Widget build(BuildContext context) {
+    List<String> titles = [
+      S.of(context).Program_16x21,
+    ];
+    List<String> subtitles = [
+      S.of(context).Face_Exercises,
+    ];
+
     return SizedBox(
       height: 200,
       child: PageView.builder(
@@ -41,7 +49,7 @@ class ContainerCarouselSix extends StatelessWidget {
                   top: 30,
                   right: 20,
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
                         titles[index],
@@ -64,7 +72,7 @@ class ContainerCarouselSix extends StatelessWidget {
                       Semantics(
                         label: 'Кнопка начать программу ${titles[index]}',
                         child: CustomGradientButton(
-                          label: 'Начать',
+                          label: S.of(context).Begin,
                           onPressed: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(

@@ -86,31 +86,44 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    'Письмо с подтверждением было отправлено на вашу электронную почту.',
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  ElevatedButton.icon(
-                    onPressed: canResendEmail ? sendVerificationEmail : null,
-                    icon: const Icon(Icons.email),
-                    label: const Text('Повторно отправить'),
-                  ),
-                  const SizedBox(height: 20),
-                  TextButton(
-                    onPressed: () async {
-                      timer?.cancel();
-                      await FirebaseAuth.instance.currentUser!.delete();
-                    },
+                  Semantics(
+                    label: 'Сообщение о верификации',
                     child: const Text(
-                      'Отменить',
+                      'Письмо с подтверждением было отправлено на вашу электронную почту.',
                       style: TextStyle(
-                        color: Colors.blue,
+                        fontSize: 20,
                       ),
                     ),
-                  )
+                  ),
+                  const SizedBox(height: 20),
+                  Semantics(
+                    label: 'Повторно отправить письмо',
+                    hint: canResendEmail
+                        ? 'Активно, нажмите для повторной отправки'
+                        : 'Неактивно, подождите несколько секунд',
+                    child: ElevatedButton.icon(
+                      onPressed: canResendEmail ? sendVerificationEmail : null,
+                      icon: const Icon(Icons.email),
+                      label: const Text('Повторно отправить'),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Semantics(
+                    label: 'Отменить',
+                    hint: 'Удалить аккаунт и вернуться на предыдущий экран',
+                    child: TextButton(
+                      onPressed: () async {
+                        timer?.cancel();
+                        await FirebaseAuth.instance.currentUser!.delete();
+                      },
+                      child: const Text(
+                        'Отменить',
+                        style: TextStyle(
+                          color: Colors.blue,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

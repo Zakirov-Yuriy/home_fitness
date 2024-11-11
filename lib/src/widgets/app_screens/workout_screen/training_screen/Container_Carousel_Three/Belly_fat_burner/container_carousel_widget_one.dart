@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/generated/l10n.dart';
 import 'package:home_fitness/src/widgets/app_screens/workout_screen/custom_gradient_button_start.dart';
 import '../../../../../../screens/app_screens/workout_screen/belly_fat_burner/belly_fat_burner_workout_screenю.dart';
 
@@ -7,18 +8,25 @@ class ContainerCarouselThree extends StatelessWidget {
     'assets/images/training_image/workout_image/belly_fat_burner/Belly fat burner.png',
   ];
 
-  final List<String> titles = [
-    'Программа 8x20',
-  ];
+  // final List<String> titles = [
+  //   'Программа 8x20',
+  // ];
 
-  final List<String> subtitles = [
-    'Убираем жир\nс живота',
-  ];
+  // final List<String> subtitles = [
+  //   S.of(context).Removing_belly_fat,
+  // ];
 
   ContainerCarouselThree({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Инициализируем titles с использованием локализации
+    List<String> titles = [
+      S.of(context).Program_8x20,
+    ];
+    List<String> subtitles = [
+      S.of(context).Removing_belly_fat,
+    ];
     return SizedBox(
       height: 200,
       child: PageView.builder(
@@ -49,7 +57,7 @@ class ContainerCarouselThree extends StatelessWidget {
                     child: Semantics(
                       label: 'Информация о программе',
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Semantics(
                             label: titles[index],
@@ -77,7 +85,7 @@ class ContainerCarouselThree extends StatelessWidget {
                             Semantics(
                               label: 'Кнопка Начать для ${titles[index]}',
                               child: CustomGradientButton(
-                                label: 'Начать',
+                                label: S.of(context).Begin,
                                 onPressed: () {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(

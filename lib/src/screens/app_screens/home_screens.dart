@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:home_fitness/generated/l10n.dart';
 import 'package:home_fitness/src/screens/auth_screen/account_screen.dart';
 import 'package:home_fitness/src/screens/auth_screen/login_screen.dart';
 import '../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_Five/Tight_toned_arms/container_carousel_widget_one.dart';
@@ -20,8 +21,8 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Semantics(
           label: 'Фитнес для женщин',
-          child: const Text(
-            'Фитнес для женщин',
+          child: Text(
+            S.of(context).Fitness_for_Women,
             style: TextStyle(
               fontSize: 23,
               fontWeight: FontWeight.bold,
@@ -32,8 +33,8 @@ class HomeScreen extends StatelessWidget {
         actions: [
           Semantics(
             label: user == null
-                ? 'Войти в аккаунт'
-                : 'Перейти в аккаунт', // Актуальное описание кнопки
+                ? S.of(context).Login_to_account
+                : S.of(context).Go_to_account, // Актуальное описание кнопки
             child: IconButton(
               onPressed: () {
                 if (user == null) {
@@ -65,10 +66,10 @@ class HomeScreen extends StatelessWidget {
               label: 'Подзаголовок: Программа',
               child: Container(
                 alignment: Alignment.bottomLeft,
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.only(left: 20, bottom: 5),
                   child: Text(
-                    'Программа',
+                    S.of(context).Program,
                     style: TextStyle(
                       fontSize: 16,
                       letterSpacing: 0,
@@ -129,10 +130,10 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               // Сообщение для незарегистрированных пользователей
-              const Padding(
+              Padding(
                 padding: EdgeInsets.all(16.0),
                 child: Text(
-                  'Войдите впрофиль, чтобы получить доступ к полному контенту.',
+                  S.of(context).Log_in,
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.black,

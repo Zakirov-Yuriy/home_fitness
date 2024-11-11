@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/generated/l10n.dart';
 import 'your_body_content_widget.dart';
 
 class YourBodyWidget extends StatelessWidget {
@@ -7,14 +8,14 @@ class YourBodyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 15),
+      padding: EdgeInsets.only(top: 15),
       child: Center(
         child: Column(
           children: [
             Semantics(
               label: 'Заголовок: Всё тело',
               child: Text(
-                'Всё тело'.toUpperCase(),
+                S.of(context).Whole_body.toUpperCase(),
                 style: const TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.w800,
@@ -25,8 +26,8 @@ class YourBodyWidget extends StatelessWidget {
               padding: const EdgeInsets.only(top: 15),
               child: Semantics(
                 label: 'Описание: Короткие упражнения интенсивный и насыщенный',
-                child: const Text(
-                  'КОРОТКИЕ УПРАЖНЕНИЯ ИНТЕНСИВНЫЙ И НАСЫЩЕННЫЙ',
+                child: Text(
+                  S.of(context).SHORT_EXERCISES_INTENSIVE_AND_SATURAL,
                   style: TextStyle(
                     fontSize: 18,
                   ),
@@ -42,7 +43,7 @@ class YourBodyWidget extends StatelessWidget {
                   children: [
                     Semantics(
                       label: 'Количество упражнений: 9',
-                      child: const Column(
+                      child: Column(
                         children: [
                           Text(
                             '9',
@@ -53,7 +54,7 @@ class YourBodyWidget extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            'Упражнений',
+                            S.of(context).Exercises,
                             style: TextStyle(
                               fontSize: 18,
                             ),
@@ -71,7 +72,7 @@ class YourBodyWidget extends StatelessWidget {
                     ),
                     Semantics(
                       label: 'Продолжительность: 23 минуты',
-                      child: const Column(
+                      child: Column(
                         children: [
                           Text(
                             '23',
@@ -82,7 +83,7 @@ class YourBodyWidget extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            'Минут',
+                            S.of(context).Minutes,
                             style: TextStyle(
                               fontSize: 18,
                             ),
@@ -108,10 +109,10 @@ class YourBodyWidget extends StatelessWidget {
               label: 'Заголовок: Список упражнений',
               child: Container(
                 alignment: Alignment.centerLeft,
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.only(left: 16, bottom: 5),
                   child: Text(
-                    'Список упражнений',
+                    S.of(context).List_of_exercises,
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,

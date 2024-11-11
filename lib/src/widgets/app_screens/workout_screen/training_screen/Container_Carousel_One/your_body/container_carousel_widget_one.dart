@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/generated/l10n.dart';
 import 'package:home_fitness/src/widgets/app_screens/workout_screen/custom_gradient_button_start.dart';
 import '../../../../../../screens/app_screens/workout_screen/melts_fat/melts_fat_workout_screenю.dart';
 import '../../../../../../screens/app_screens/workout_screen/your_body/full_body_workout_screenю.dart';
@@ -9,20 +10,28 @@ class ContainerCarouselOne extends StatelessWidget {
     'assets/images/training_image/workout_image/GIRL_WITH.jpg',
   ];
 
-  final List<String> titles = [
-    'Программа 9x23',
-    'Программа 8x21',
-  ];
+  // final List<String> titles = [
+  //   S.of(context).Program_9x23,
+  //   S.of(context).Program_8x21,
+  // ];
 
-  final List<String> subtitles = [
-    'Тренировка \nвсего тела',
-    'Растопить \nжир',
-  ];
+  // final List<String> subtitles = [
+  //   S.of(context).Full_body_workout,
+  //   S.of(context).Melt_the_fat,
+  // ];
 
   ContainerCarouselOne({super.key});
 
   @override
   Widget build(BuildContext context) {
+    List<String> titles = [
+      S.of(context).Program_9x23,
+      S.of(context).Program_8x21,
+    ];
+    List<String> subtitles = [
+      S.of(context).Full_body_workout,
+      S.of(context).Melt_the_fat,
+    ];
     return SizedBox(
       height: 200,
       child: PageView.builder(
@@ -52,7 +61,7 @@ class ContainerCarouselOne extends StatelessWidget {
                     child: Semantics(
                       label: '${titles[index]}: ${subtitles[index]}',
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
                             titles[index],
@@ -75,7 +84,7 @@ class ContainerCarouselOne extends StatelessWidget {
                             Semantics(
                               label: 'Кнопка начать тренировку: Программа 9x23',
                               child: CustomGradientButton(
-                                label: 'Начать',
+                                label: S.of(context).Begin,
                                 onPressed: () {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(
@@ -117,7 +126,7 @@ class ContainerCarouselOne extends StatelessWidget {
                             Semantics(
                               label: 'Кнопка начать тренировку: Программа 8x21',
                               child: CustomGradientButton(
-                                label: 'Начать',
+                                label: S.of(context).Begin,
                                 onPressed: () {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(

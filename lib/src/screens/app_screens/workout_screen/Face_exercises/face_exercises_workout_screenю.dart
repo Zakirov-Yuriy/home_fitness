@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/generated/l10n.dart';
 import '../../../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_Six/Face Exercises/face_exercises_widget.dart';
 
 class FaceExercisesWorkoutScreen extends StatefulWidget {
@@ -36,8 +37,8 @@ class FaceExercisesWorkoutScreenState
                 ? null
                 : Semantics(
                     label: 'Заголовок страницы: Face Exercises',
-                    child: const Text(
-                      'Face Exercises',
+                    child: Text(
+                      S.of(context).Face_Exercises2,
                       style: TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ),

@@ -2,7 +2,9 @@ import 'dart:developer';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:home_fitness/generated/l10n.dart';
 import 'package:home_fitness/services/firebase_options.dart';
 import 'package:home_fitness/services/firebase_streem.dart';
 import 'package:home_fitness/src/screens/app_screens/home_screens.dart';
@@ -35,6 +37,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      locale: Locale('ru'),
+      supportedLocales: S.delegate.supportedLocales,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         pageTransitionsTheme: const PageTransitionsTheme(builders: {

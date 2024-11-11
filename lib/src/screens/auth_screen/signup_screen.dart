@@ -247,7 +247,6 @@ class _SignUpScreen extends State<SignUpScreen> {
     emailTextInputController.dispose();
     passwordTextInputController.dispose();
     passwordTextRepeatInputController.dispose();
-
     super.dispose();
   }
 
@@ -259,7 +258,6 @@ class _SignUpScreen extends State<SignUpScreen> {
 
   Future<void> signUp() async {
     final navigator = Navigator.of(context);
-
     final isValid = formKey.currentState!.validate();
     if (!isValid) return;
 
@@ -313,84 +311,93 @@ class _SignUpScreen extends State<SignUpScreen> {
           key: formKey,
           child: Column(
             children: [
-              // Логотип
               const SizedBox(height: 68),
-              Image.asset(
-                'assets/images/logo/logo2.png', // Убедитесь, что путь к логотипу верный
-                height: 200,
-                width: 200,
-              ),
-              const SizedBox(height: 30),
-
-              TextFormField(
-                keyboardType: TextInputType.emailAddress,
-                autocorrect: false,
-                controller: emailTextInputController,
-                validator: (email) =>
-                    email != null && !EmailValidator.validate(email)
-                        ? 'Введите правильный Email'
-                        : null,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Введите Email',
+              Semantics(
+                label: 'Логотип приложения',
+                child: Image.asset(
+                  'assets/images/logo/logo2.png',
+                  height: 200,
+                  width: 200,
                 ),
               ),
               const SizedBox(height: 30),
-              TextFormField(
-                autocorrect: false,
-                controller: passwordTextInputController,
-                obscureText: isHiddenPassword,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (value) => value != null && value.length < 6
-                    ? 'Минимум 6 символов'
-                    : null,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  hintText: 'Введите пароль',
-                  suffix: InkWell(
-                    onTap: togglePasswordView,
-                    child: Icon(
-                      isHiddenPassword
-                          ? Icons.visibility_off
-                          : Icons.visibility,
-                      color: Colors.black,
-                    ),
+              Semantics(
+                label: 'Поле для ввода Email',
+                child: TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  autocorrect: false,
+                  controller: emailTextInputController,
+                  validator: (email) =>
+                      email != null && !EmailValidator.validate(email)
+                          ? 'Введите правильный Email'
+                          : null,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Введите Email',
                   ),
                 ),
               ),
               const SizedBox(height: 30),
-              TextFormField(
-                autocorrect: false,
-                controller: passwordTextRepeatInputController,
-                obscureText: isHiddenPassword,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (value) => value != null && value.length < 6
-                    ? 'Минимум 6 символов'
-                    : null,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  hintText: 'Введите пароль еще раз',
-                  suffix: InkWell(
-                    onTap: togglePasswordView,
-                    child: Icon(
-                      isHiddenPassword
-                          ? Icons.visibility_off
-                          : Icons.visibility,
-                      color: Colors.black,
+              Semantics(
+                label: 'Поле для ввода пароля',
+                child: TextFormField(
+                  autocorrect: false,
+                  controller: passwordTextInputController,
+                  obscureText: isHiddenPassword,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) => value != null && value.length < 6
+                      ? 'Минимум 6 символов'
+                      : null,
+                  decoration: InputDecoration(
+                    border: const OutlineInputBorder(),
+                    hintText: 'Введите пароль',
+                    suffix: InkWell(
+                      onTap: togglePasswordView,
+                      child: Icon(
+                        isHiddenPassword
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                 ),
               ),
               const SizedBox(height: 30),
               Semantics(
-                label: 'Регистрация',
+                label: 'Поле для повторного ввода пароля',
+                child: TextFormField(
+                  autocorrect: false,
+                  controller: passwordTextRepeatInputController,
+                  obscureText: isHiddenPassword,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) => value != null && value.length < 6
+                      ? 'Минимум 6 символов'
+                      : null,
+                  decoration: InputDecoration(
+                    border: const OutlineInputBorder(),
+                    hintText: 'Введите пароль еще раз',
+                    suffix: InkWell(
+                      onTap: togglePasswordView,
+                      child: Icon(
+                        isHiddenPassword
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 30),
+              Semantics(
+                label: 'Кнопка для завершения регистрации',
                 child: Container(
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
                       colors: [
-                        Color.fromRGBO(255, 51, 119, 1), // Основной цвет
-                        Color.fromRGBO(
-                            255, 102, 153, 1), // Светлый оттенок для градиента
+                        Color.fromRGBO(255, 51, 119, 1),
+                        Color.fromRGBO(255, 102, 153, 1),
                       ],
                       begin: Alignment.bottomCenter,
                       end: Alignment.topCenter,
@@ -418,12 +425,15 @@ class _SignUpScreen extends State<SignUpScreen> {
                 ),
               ),
               const SizedBox(height: 30),
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const Text(
-                  'Войти',
-                  style: TextStyle(
-                    color: Colors.black,
+              Semantics(
+                label: 'Кнопка для возврата на экран входа',
+                child: TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: const Text(
+                    'Войти',
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
                   ),
                 ),
               ),

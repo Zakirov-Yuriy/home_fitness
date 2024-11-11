@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/generated/l10n.dart';
 import 'trim_butt_and_legs_content_widget.dart';
 
 class TrimButtAndLegsWidget extends StatelessWidget {
@@ -14,7 +15,7 @@ class TrimButtAndLegsWidget extends StatelessWidget {
             Semantics(
               label: 'Название тренировки: подтянутые ягодицы',
               child: Text(
-                'Подтянутые ягодицы'.toUpperCase(),
+                S.of(context).Toned_buttocks.toUpperCase(),
                 style: const TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.w800,
@@ -26,7 +27,7 @@ class TrimButtAndLegsWidget extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(top: 15),
                 child: Text(
-                  'Лучше всего подходит \nдля ног и бедер'.toUpperCase(),
+                  S.of(context).Best_suited_for_legs_and_thighs.toUpperCase(),
                   style: const TextStyle(
                     fontSize: 18,
                   ),
@@ -44,7 +45,7 @@ class TrimButtAndLegsWidget extends StatelessWidget {
                     children: [
                       Semantics(
                         label: '9 упражнений',
-                        child: const Column(
+                        child: Column(
                           children: [
                             Text(
                               '9',
@@ -55,7 +56,7 @@ class TrimButtAndLegsWidget extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              'Упражнений',
+                              S.of(context).Exercises,
                               style: TextStyle(
                                 fontSize: 18,
                               ),
@@ -73,7 +74,7 @@ class TrimButtAndLegsWidget extends StatelessWidget {
                       ),
                       Semantics(
                         label: '21 минута',
-                        child: const Column(
+                        child: Column(
                           children: [
                             Text(
                               '21',
@@ -84,7 +85,7 @@ class TrimButtAndLegsWidget extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              'Минут',
+                              S.of(context).Minutes,
                               style: TextStyle(
                                 fontSize: 18,
                               ),
@@ -111,10 +112,10 @@ class TrimButtAndLegsWidget extends StatelessWidget {
               label: 'Заголовок списка упражнений',
               child: Container(
                 alignment: Alignment.centerLeft,
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.only(left: 16, bottom: 5),
                   child: Text(
-                    'Список упражнений',
+                    S.of(context).List_of_exercises,
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,

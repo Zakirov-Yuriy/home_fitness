@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/generated/l10n.dart';
 import 'package:home_fitness/src/screens/app_screens/workout_screen/tight_toned_arms/tight_toned_arms_workout_screen%D1%8E.dart';
 import 'package:home_fitness/src/widgets/app_screens/workout_screen/custom_gradient_button_start.dart';
 
@@ -7,18 +8,24 @@ class ContainerCarouselFive extends StatelessWidget {
     'assets/images/training_image/workout_image/tight_toned_arms/Tight toned arms.png',
   ];
 
-  final List<String> titles = [
-    'Программа 9x21',
-  ];
+  // final List<String> titles = [
+  //   'Программа 9x21',
+  // ];
 
-  final List<String> subtitles = [
-    'Подтянутые \nруки',
-  ];
+  // final List<String> subtitles = [
+  //   'Подтянутые \nруки',
+  // ];
 
   ContainerCarouselFive({super.key});
 
   @override
   Widget build(BuildContext context) {
+    List<String> titles = [
+      S.of(context).Program_9x21,
+    ];
+    List<String> subtitles = [
+      S.of(context).Tight_arms,
+    ];
     return SizedBox(
       height: 200,
       child: PageView.builder(
@@ -47,7 +54,7 @@ class ContainerCarouselFive extends StatelessWidget {
                   top: 30,
                   right: 20,
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Semantics(
                         label: 'Название программы: ${titles[index]}',
@@ -75,7 +82,7 @@ class ContainerCarouselFive extends StatelessWidget {
                         Semantics(
                           label: 'Кнопка начать программу ${titles[index]}',
                           child: CustomGradientButton(
-                            label: 'Начать',
+                            label: S.of(context).Begin,
                             onPressed: () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(

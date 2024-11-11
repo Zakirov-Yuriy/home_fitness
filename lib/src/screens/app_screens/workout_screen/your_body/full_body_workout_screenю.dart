@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/generated/l10n.dart';
 import '../../../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_One/your_body/your_body_widget.dart';
 
 class FullBodyWorkoutScreen extends StatefulWidget {
@@ -34,8 +35,8 @@ class FullBodyWorkoutScreenState extends State<FullBodyWorkoutScreen> {
                 ? null
                 : Semantics(
                     label: 'Заголовок страницы: Всё тело',
-                    child: const Text(
-                      'Всё тело',
+                    child: Text(
+                      S.of(context).Whole_body,
                       style: TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ),

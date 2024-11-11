@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/generated/l10n.dart';
 import '../../../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_Four/trim_butt_and_legs/trim_butt_and_legs_widget.dart';
 
 class TrimButtAndLegsWorkoutScreen extends StatefulWidget {
@@ -36,8 +37,8 @@ class TrimButtAndLegsWorkoutScreenState
                 ? null
                 : Semantics(
                     label: 'Заголовок страницы: Ягодицы и ноги',
-                    child: const Text(
-                      'Ягодицы и ноги',
+                    child: Text(
+                      S.of(context).Buttocks_and_legs2,
                       style: TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ),

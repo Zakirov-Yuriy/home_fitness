@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/generated/l10n.dart';
 
 import 'face_exercises_content_widget.dart';
 
@@ -15,7 +16,7 @@ class FaceExercisesWidget extends StatelessWidget {
             Semantics(
               label: 'Заголовок упражнений для лица',
               child: Text(
-                'Face Exercises'.toUpperCase(),
+                S.of(context).Face_Exercises2.toUpperCase(),
                 style: const TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.w800,
@@ -27,7 +28,7 @@ class FaceExercisesWidget extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(top: 15),
                 child: Text(
-                  'Лучше всего подходит \nдля лица'.toUpperCase(),
+                  S.of(context).Best_suited_for_the_face.toUpperCase(),
                   style: const TextStyle(
                     fontSize: 18,
                   ),
@@ -45,7 +46,7 @@ class FaceExercisesWidget extends StatelessWidget {
                     children: [
                       Semantics(
                         label: 'Количество упражнений: 16',
-                        child: const Column(
+                        child: Column(
                           children: [
                             Text(
                               '16',
@@ -56,7 +57,7 @@ class FaceExercisesWidget extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              'Упражнений',
+                              S.of(context).Exercises,
                               style: TextStyle(
                                 fontSize: 18,
                               ),
@@ -74,7 +75,7 @@ class FaceExercisesWidget extends StatelessWidget {
                       ),
                       Semantics(
                         label: 'Длительность: 21 минута',
-                        child: const Column(
+                        child: Column(
                           children: [
                             Text(
                               '21',
@@ -85,7 +86,7 @@ class FaceExercisesWidget extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              'Минут',
+                              S.of(context).Minutes,
                               style: TextStyle(
                                 fontSize: 18,
                               ),
@@ -112,10 +113,10 @@ class FaceExercisesWidget extends StatelessWidget {
               label: 'Заголовок списка упражнений',
               child: Container(
                 alignment: Alignment.centerLeft,
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.only(left: 16, bottom: 5),
                   child: Text(
-                    'Список упражнений',
+                    S.of(context).List_of_exercises,
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,

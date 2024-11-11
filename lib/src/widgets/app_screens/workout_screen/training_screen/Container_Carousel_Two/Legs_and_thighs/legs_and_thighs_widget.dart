@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/generated/l10n.dart';
 import 'legs_and_thighs_content_widget.dart';
 
 class LegsAndThighsWidget extends StatelessWidget {
@@ -14,7 +15,7 @@ class LegsAndThighsWidget extends StatelessWidget {
             Semantics(
               label: 'Ноги и бедра. Лучше всего подходит для ног и бедер.',
               child: Text(
-                'Ноги и бедра'.toUpperCase(),
+                S.of(context).Legs_and_Hips.toUpperCase(),
                 style: const TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.w800,
@@ -26,7 +27,7 @@ class LegsAndThighsWidget extends StatelessWidget {
               child: Semantics(
                 label: 'Лучше всего подходит для ног и бедер.',
                 child: Text(
-                  'Лучше всего подходит \nдля ног и бедер'.toUpperCase(),
+                  S.of(context).Best_suited_for_legs_and_thighs.toUpperCase(),
                   style: const TextStyle(
                     fontSize: 18,
                   ),
@@ -42,7 +43,7 @@ class LegsAndThighsWidget extends StatelessWidget {
                   children: [
                     Semantics(
                       label: '10 упражнений',
-                      child: const Column(
+                      child: Column(
                         children: [
                           Text(
                             '10',
@@ -53,7 +54,7 @@ class LegsAndThighsWidget extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            'Упражнений',
+                            S.of(context).Exercises,
                             style: TextStyle(
                               fontSize: 18,
                             ),
@@ -71,7 +72,7 @@ class LegsAndThighsWidget extends StatelessWidget {
                     ),
                     Semantics(
                       label: '24 минуты',
-                      child: const Column(
+                      child: Column(
                         children: [
                           Text(
                             '24',
@@ -82,7 +83,7 @@ class LegsAndThighsWidget extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            'Минут',
+                            S.of(context).Minutes,
                             style: TextStyle(
                               fontSize: 18,
                             ),
@@ -102,13 +103,13 @@ class LegsAndThighsWidget extends StatelessWidget {
               ),
             ),
             Semantics(
-              label: 'Список упражнений',
+              label: S.of(context).List_of_exercises,
               child: Container(
                 alignment: Alignment.centerLeft,
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.only(left: 16, bottom: 5),
                   child: Text(
-                    'Список упражнений',
+                    S.of(context).List_of_exercises,
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,

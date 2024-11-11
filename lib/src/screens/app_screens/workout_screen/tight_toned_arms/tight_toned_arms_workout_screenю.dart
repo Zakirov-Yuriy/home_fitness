@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/generated/l10n.dart';
 import '../../../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_Five/Tight_toned_arms/tight_toned_arms_widget.dart';
 
 class TightTonedArmsWorkoutScreen extends StatefulWidget {
@@ -36,8 +37,8 @@ class TightTonedArmsWorkoutScreenState
                 ? null
                 : Semantics(
                     label: 'Заголовок страницы: Подтянутые руки',
-                    child: const Text(
-                      'Подтянутые руки',
+                    child: Text(
+                      S.of(context).Tight_arms2,
                       style: TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ),

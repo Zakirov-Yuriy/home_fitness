@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_fitness/generated/l10n.dart';
 import 'package:home_fitness/src/widgets/app_screens/workout_screen/custom_gradient_button_start.dart';
 import '../../../../../../screens/app_screens/workout_screen/Bigger_booty/Bigger_booty_workout_screenю.dart';
 import '../../../../../../screens/app_screens/workout_screen/TrimButtAndLegs/Trim_butt_and-legs_workout_screenю.dart';
@@ -9,20 +10,29 @@ class ContainerCarouselFour extends StatelessWidget {
     'assets/images/training_image/workout_image/trim butt and legs/trim butt and legs.jpg',
   ];
 
-  final List<String> titles = [
-    'Программа 9x21',
-    'Программа 9x21',
-  ];
+  // final List<String> titles = [
+  //   S.of(context).Program_9x21,
+  //   'Программа 9x21',
+  // ];
 
-  final List<String> subtitles = [
-    'Упругие \nягодицы',
-    'Подтянутые \nягодицы',
-  ];
+  // final List<String> subtitles = [
+  //   'Упругие \nягодицы',
+  //   'Подтянутые \nягодицы',
+  // ];
 
   ContainerCarouselFour({super.key});
 
   @override
   Widget build(BuildContext context) {
+    List<String> titles = [
+      S.of(context).Program_9x21,
+      S.of(context).Program_9x21,
+    ];
+
+    List<String> subtitles = [
+      S.of(context).Elastic_buttocks,
+      S.of(context).Tight_buttocks,
+    ];
     return SizedBox(
       height: 200,
       child: PageView.builder(
@@ -53,7 +63,7 @@ class ContainerCarouselFour extends StatelessWidget {
                   top: 30,
                   right: 20,
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       // Заголовок
                       Semantics(
@@ -84,7 +94,7 @@ class ContainerCarouselFour extends StatelessWidget {
                         Semantics(
                           label: 'Кнопка Начать для ${titles[index]}',
                           child: CustomGradientButton(
-                            label: 'Начать',
+                            label: S.of(context).Begin,
                             onPressed: () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
@@ -123,7 +133,7 @@ class ContainerCarouselFour extends StatelessWidget {
                         Semantics(
                           label: 'Кнопка Начать для ${titles[index]}',
                           child: CustomGradientButton(
-                            label: 'Начать',
+                            label: S.of(context).Begin,
                             onPressed: () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(

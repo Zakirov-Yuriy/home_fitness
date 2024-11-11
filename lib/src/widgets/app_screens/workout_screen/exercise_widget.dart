@@ -10,7 +10,7 @@ class ExerciseWidget extends StatelessWidget {
   final String durationText;
   final String videoUrl;
 
-  const ExerciseWidget({
+  ExerciseWidget({
     super.key,
     required this.imagePath,
     required this.exerciseText,
